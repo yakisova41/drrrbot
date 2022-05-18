@@ -6,5 +6,6 @@ setup(
     install_requires=["requests", "BeautifulSoup4"],
     extras_require={
         "develop": ["requests", "BeautifulSoup4"]
-    }
+    },
+    packages=['drrrbot']
 )
