@@ -1,5 +1,5 @@
 # drrrbot
-You can make a bot for http://drrrkari.com with this package
+You can easily create a bot for http://drrrkari.com
 ## Useage
 ```sh
 $ pip install git+https://github.com/yakisova41/drrrbot
