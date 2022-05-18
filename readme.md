@@ -11,7 +11,7 @@ from drrrbot import Room
 from drrrbot import Rounge
 
 login = User.login('name','usa')
-rooms = Lounge.gete_allroom(login)
+rooms = Lounge.get_allroom(login)
 target = rooms['zatsu'][0]
 
 Room.login(target['roomid'],login)
