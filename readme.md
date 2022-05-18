@@ -8,7 +8,7 @@ $ pip install git+https://github.com/yakisova41/drrrbot
 ```python
 from drrrbot import User
 from drrrbot import Room
-from drrrbot import Rounge
+from drrrbot import Lounge
 
 login = User.login('name','usa')
 rooms = Lounge.get_allroom(login)
