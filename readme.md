@@ -6,28 +6,96 @@ $ pip install git+https://github.com/yakisova41/drrrbot
 ```
 
 ```python
-from drrrbot import User
-from drrrbot import Room
-from drrrbot import Lounge
+bot = Drrrbot(
+    'name',#UserName
+    'usa',#IconName
+    'Useragent'#UserAgent
+)
+bot.roomLogin('exampleRoomid')
+bot.roomSend('Hello!')
+bot.roomLogout()
 
-login = User.login('name','usa')
-rooms = Lounge.get_allroom(login)
-target = rooms['zatsu'][0]
-
-Room.login(target['roomid'],login)
-Room.send('hello',login)
-Room.logout(login)
+bot.exit()
 ```
 
-## IF blocked access?
-![Screenshot from 2022-04-23 23-24-11](https://user-images.githubusercontent.com/75610521/169055115-37f93c66-10ca-4316-bfc1-9e7e4759de87.png)
+## basic operation
 
-Rest assured.
-This is happening because cloudflare is blocking your useragent
-
-### How to create a bot with any useragent
+### roomLogin
 ```python
-useragent = "super ultra internet explorer"
-Room.login(target['roomid'],login,useragent)
+bot.roomLogin('exampleRoomid')
 ```
-ok!
+Entering a roomid as the first argument allows you to enter that room
+
+### roomLogout
+```python
+bot.roomLogout()
+```
+You can leave the room.
+
+### roomSend
+```python
+bot.roomSend('message')
+```
+If you specify a string as the first argument, you can send that string as a message
+
+### exit
+```python
+bot.exit()
+```
+Log out of drrrrkari.com
+
+## getAllroom
+Retrieve and parse information for all rooms
+
+Information that can be obtained
+- Room name
+- Room members
+- Number of people in room
+- Roomstatus
+    - 1 Can enter
+    - 2 Can knock
+    - 3 Can not
+- Room id
+```python
+bot.getAllroom()
+
+#return value =>>
+#{
+#   'kotei':[
+#       {
+#       'name':'Room name',
+#       'member':['member1','member2']
+#       'peoples':[2,15],//=> 2/15 
+#       'status':1,
+#       'roomid':'exampleRoomid'
+#       },{...}...
+#   ],
+#   'zatsu':[...],
+#   'narikiri':[...],
+#   'bl':[...]
+#}
+```
+
+## Functions for admin
+The following functions are only available when you are the room admin
+
+
+### roomKick
+```python
+bot.roomKick(targetUserID)
+```
+You can kick the target by entering the target userid string as the first argument
+
+
+### roomNewhost
+```python
+bot.roomNewhost(targetUserID)
+```
+You can make the target a new administrator by entering the target's user ID string as the first argument
+
+
+### roomNewname
+```python
+bot.roomNewhost(name)
+```
+You can change the room name to a new one by entering the room name string as the first argument
