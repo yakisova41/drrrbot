@@ -96,6 +96,6 @@ You can make the target a new administrator by entering the target's user ID str
 
 ### roomNewname
 ```python
-bot.roomNewhost(name)
+bot.roomNewname(name)
 ```
 You can change the room name to a new one by entering the room name string as the first argument
